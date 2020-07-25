@@ -39,6 +39,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       response.data.comment.map((arr) => array.push(arr));
+      console.log("commentmany: "+response.data.commentmany);
     })
     .catch(function (error) {
       console.log(error);
@@ -58,7 +59,6 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       rate: star
     })
     .then(function (response) {
-      console.log(response.data.check);
       if(response.data.check == true) {
         checkAdd();
       }

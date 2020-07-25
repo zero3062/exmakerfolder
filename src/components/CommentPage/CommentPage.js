@@ -17,10 +17,10 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr }) => {
     if(input != '') {
       setNum(num => num + 1);
       setLists([
-        ...lists,
         {
           comment: input,
-        }
+        },
+        ...lists,
       ]);
 
       axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/comment`, {
