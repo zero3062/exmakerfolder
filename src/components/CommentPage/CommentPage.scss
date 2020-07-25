@@ -1,0 +1,62 @@
+.commentpage-back {
+  border: 1.5px solid #ABABAB;
+  width: 440px;
+  height: auto;
+  margin-left: 25px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  h4 {
+    margin-left: 20px;
+  }
+
+  .commentpage-user {
+
+    .commentpage-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 100px;
+      background-color: #ABABAB;
+      margin-left: 20px;
+      margin-top: -10px;
+    }
+
+    .commentpage-after, .commentpage-before {
+      margin-top: -28px;
+      margin-left: 60px;
+
+      input {
+        width: 350px;
+        font-size: 15px;
+        padding: 3px 5px;
+        margin-bottom: 10px;
+        outline: none;
+      }
+
+      button {
+        float: right;
+        margin-right: 18px;
+        font-size: 15px;
+        background-color: white;
+        color: #ABABAB;
+        border: 1px solid #ABABAB;
+        border-radius: 5px;
+      }
+
+      .commentpage-push {
+        background-color: #009688;
+        color: white;
+        border: 1px solid #009688;
+      }
+    }
+
+    .commentpage-before {
+      height: 50px;
+    }
+
+    .commentpage-after{
+      height: 70px;
+    }
+  }
+
+}
