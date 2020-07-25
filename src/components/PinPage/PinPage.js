@@ -71,13 +71,6 @@ const PinPage = () => {
         .catch(function (error){
           console.log(error);
         });
-        history.push({
-           pathname: '/view',
-           state: {
-             pin: pinnum,
-             id: nickname
-           }
-         })
     } else {
       alert("다시입력해주세요");
       setPinnum('');
