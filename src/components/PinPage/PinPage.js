@@ -46,7 +46,7 @@ const PinPage = () => {
       setIsWhat(true);
     }
 
-    if(!passRule.test(nickname) && pinnum == "tZJRc" && nickname != '' ){
+    if(!passRule.test(nickname) && pinnum == "jxeYQ" && nickname != '' ){
         axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
           id:nickname,
           pin:pinnum
@@ -80,39 +80,7 @@ const PinPage = () => {
              id: nickname
            }
          })
-    } else if(!passRule.test(nickname) && pinnum == "lgibX" && nickname != '' ){
-      axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
-        id:nickname,
-        pin:pinnum
-      })
-      .then(function (response) {
-        console.log(response.data.check);
-        if(response.data.check == true) {
-          history.push({
-             pathname: '/view',
-             state: {
-               pin: pinnum,
-               id: nickname
-             }
-           })
-        } else {
-          alert("설문이 완료된 페이지입니다.");
-          setPinnum('');
-          setNickname('');
-          setIsWhat(true);
-        }
-      })
-      .catch(function (error){
-        console.log(error);
-      });
-      history.push({
-         pathname: '/view',
-         state: {
-           pin: pinnum,
-           id: nickname
-         }
-       })
-    }else {
+    } else {
       alert("다시입력해주세요");
       setPinnum('');
       setNickname('');

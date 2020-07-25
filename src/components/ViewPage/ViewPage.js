@@ -710,7 +710,17 @@ const ViewPage = () => {
         pin: viewPin
       })
       .then(function (response) {
-        console.log(response.body.check);
+        console.log(response.data.check);
+        if(response.data.check == true){
+          history.push({
+            pathname: '/',
+            state: {
+              final: final,
+              pin: viewPin,
+              id: viewId
+            }
+          });
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -738,7 +748,7 @@ const ViewPage = () => {
 
   return (
     <div>
-    { (viewPin == "tZJRc") ?
+    { (viewPin == "jxeYQ") ?
       <div className={cx('view-back')}>
         <div className={cx('view-header')}>
           <div className={cx('fixed-title')}>2020학년도 1학년 카드뉴스 수행평가</div>

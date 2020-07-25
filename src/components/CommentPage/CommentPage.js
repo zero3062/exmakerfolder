@@ -5,11 +5,13 @@ import CommentList from './../CommentList/CommentList';
 
 const cx = classNames.bind(styles);
 
-const CommentPage = ({ viewid }) => {
+const axios = require('axios');
+
+const CommentPage = ({ viewid, viewpin, viewitem, commentarr }) => {
   const [input, setInput] = useState('');
   const [click, setClick] = useState(false);
-  const [lists, setLists] = useState([]);
-  const [num, setNum] = useState(0);
+  const [lists, setLists] = useState([commentarr]);
+  const [num, setNum] = useState(commentarr.length);
 
   const handleCommitAdd = () => {
     if(input != '') {
@@ -21,6 +23,21 @@ const CommentPage = ({ viewid }) => {
           id: num,
         }
       ]);
+
+      axios.post('api/use/comment', {
+        id: viewid,
+        pin: viewpin,
+        sub_name: viewitem,
+        comment: input
+      })
+      .then(function(response) {
+        console.log(response.data.check);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
       setClick(false);
       setInput('');
     }
