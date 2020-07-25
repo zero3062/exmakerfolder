@@ -15,7 +15,6 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
 
   const handleCommitAdd = () => {
     if(input != '') {
-      setNum(num => num + 1);
       setLists([
         {
           comment: input,
