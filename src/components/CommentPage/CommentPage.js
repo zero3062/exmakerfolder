@@ -11,10 +11,10 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
   const [input, setInput] = useState('');
   const [click, setClick] = useState(false);
   const [lists, setLists] = useState(commentarr);
-  const [num, setNum] = useState(commentnum);
+  const num = commentnum;
 
   const handleCommitAdd = () => {
-    if(input != '') {
+    if(input !== '') {
       setLists([
         {
           comment: input,
@@ -42,7 +42,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
   }
 
   const handleOnKeyEnter = (event) => {
-    if(event.charCode == 13) {
+    if(event.charCode === 13) {
       handleCommitAdd();
     }
   }

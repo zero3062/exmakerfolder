@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from 'react';
 import styles from './ViewItem.scss';
 import classNames from 'classnames/bind';
 import InPage from './../InPage/InPage';
@@ -9,11 +8,9 @@ const cx = classNames.bind(styles);
 const axios = require('axios');
 
 function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
-  const location = useLocation();
 
   const [select, setSelect] = useState(false);
   const [star, setStar] = useState(0);
-  const [loca, setLoca] = useState();
   const [avgrate, setAvgrate] = useState(0);
   const [commentarr, setCommentarr] = useState([]);
   const [commentnum, setCommentNum] = useState(0);
@@ -60,7 +57,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       rate: star
     })
     .then(function (response) {
-      if(response.data.check == true) {
+      if(response.data.check === true) {
         checkAdd();
       }
     })
@@ -107,7 +104,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
         <div className={cx('ratingnum')}>평점 : {avgrate}</div>
         <img src={img}/>
       </div>
-      { (select == true) &&
+      { (select === true) &&
         <div>
           <div className={cx('viewitem-opacity')} onClick={handleClickBack}></div>
           <div className={cx('inpage')}>

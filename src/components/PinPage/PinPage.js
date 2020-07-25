@@ -20,7 +20,7 @@ const PinPage = () => {
   const [onePin, setOnePin] = useState('');
 
   useEffect(() => {
-    if( typeof (location.state) !== 'undefined' && location.state != null) {
+    if( typeof (location.state) !== 'undefined' && location.state !== null) {
       const { jxeYQ, oneid, onepin } = location.state;
       setOnejxeYQ(jxeYQ);
       setOneId(oneid);
@@ -44,14 +44,14 @@ const PinPage = () => {
       setIsWhat(true);
     }
 
-    if(!passRule.test(nickname) && pinnum == "jxeYQ" && nickname != '' ){
+    if(!passRule.test(nickname) && pinnum === "jxeYQ" && nickname !== '' ){
         axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
           id:nickname,
           pin:pinnum
         })
         .then(function (response) {
           console.log(response.data.check);
-          if(response.data.check == true) {
+          if(response.data.check === true) {
             history.push({
                pathname: '/view',
                state: {
@@ -77,124 +77,6 @@ const PinPage = () => {
       setNickname('');
       setIsWhat(true);
     }
-
-    // if(!passRule.test(nickname) && pinnum == "tZJRc" && nickname !== '') {
-    //   e.preventDefault();
-    //
-    //   if(onetZJRc == true) {
-    //     if(nickname == oneId) {
-    //       alert("설문이 완료된 페이지입니다.");
-    //       setPinnum('');
-    //       setNickname('');
-    //       setIsWhat(true);
-    //     } else {
-    //       axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
-    //         id:nickname,
-    //         pin:pinnum
-    //       })
-    //       .then(function (response) {
-    //         console.log(response.check);
-    //       })
-    //       .catch(function (error){
-    //         console.log(error);
-    //       })
-    //
-    //       history.push({
-    //         pathname: '/view',
-    //         state: {
-    //           pin: pinnum,
-    //           id: nickname
-    //         }
-    //       })
-    //     }
-    //   } else {
-    //     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
-    //       id:nickname,
-    //       pin:pinnum
-    //     })
-    //     .then(function (response) {
-    //       console.log(response.body.check);
-    //     })
-    //     .catch(function (error){
-    //       console.log(error);
-    //     })
-    //
-    //     history.push({
-    //       pathname: '/view',
-    //       state: {
-    //         pin: pinnum,
-    //         id: nickname
-    //       }
-    //     })
-    //   }
-    // }
-    // else if(!passRule.test(nickname) && pinnum == "lgibX" && nickname !== '') { // L은 소문자임
-    //   if(onelgibX == true) {
-    //     if(nickname == oneId) {
-    //       alert("설문이 완료된 페이지입니다.");
-    //       setPinnum('');
-    //       setNickname('');
-    //       setIsWhat(true);
-    //     } else {
-    //       axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
-    //         id:nickname,
-    //         pin:pinnum
-    //       })
-    //       .then(function (response) {
-    //         console.log(response.body.check);
-    //       })
-    //       .catch(function (error){
-    //         console.log(error);
-    //       })
-    //
-    //       history.push({
-    //         pathname: '/view',
-    //         state: {
-    //           pin: pinnum,
-    //           id: nickname
-    //         }
-    //       })
-    //     }
-    //   } else {
-    //     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
-    //       id:nickname,
-    //       pin:pinnum
-    //     })
-    //     .then(function (response) {
-    //       console.log(response.body.check);
-    //     })
-    //     .catch(function (error){
-    //       console.log(error);
-    //     })
-    //
-    //     history.push({
-    //       pathname: '/view',
-    //       state: {
-    //         pin: pinnum,
-    //         id: nickname
-    //       }
-    //     })
-    //   }
-    // }
-    // else {
-    //   alert("다시입력해주세요");
-    //   setPinnum('');
-    //   setNickname('');
-    //   setIsWhat(true);
-    // }
-
-    // axios.post('api/use/loadpage', {
-    //   pin: pinnum,
-    //   id: nickname
-    // })
-    // .then(function (response) {
-    //   console.log(response.body.check);
-    //   setCheck(response.body.check);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-
   }
 
   const handlePrev = () => {
@@ -205,7 +87,7 @@ const PinPage = () => {
 
   return(
     <div>
-      { isWhat == true ?
+      { isWhat === true ?
       <div className={cx('pin-back')}>
         <Link to="/"><span className={cx('pin-before')}>{[<span>&lt;</span>]}</span></Link>
         <form className={cx('pin-contents')} onSubmit={handlePinSubmit}>

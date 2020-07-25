@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
 import styles from './CommentItem.scss';
 import classNames from 'classnames/bind';
 

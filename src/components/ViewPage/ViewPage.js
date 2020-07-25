@@ -178,12 +178,12 @@ const ViewPage = () => {
   let history = useHistory();
   const location = useLocation();
 
-  const [ final, setFinal ] = useState(true);
+  const final = true;
   const [ viewId, setViewId ] = useState('');
   const [ viewPin, setViewPin ] = useState('');
   const [ num,setNum ] = useState(0);
 
-  const [lists, setLists] = useState([
+  const lists = ([
     {
       id:1,
       file: _1101,
@@ -685,7 +685,7 @@ const ViewPage = () => {
   ]);
 
   useEffect(() => {
-    if (typeof (location.state) !== 'undefined' && location.state != null) {
+    if (typeof (location.state) !== 'undefined' && location.state !== null) {
       const { id, pin } = location.state;
       setViewId(id);
       setViewPin(pin);
@@ -711,7 +711,7 @@ const ViewPage = () => {
       })
       .then(function (response) {
         console.log(response.data.check);
-        if(response.data.check == true){
+        if(response.data.check === true){
           history.push({
             pathname: '/',
             state: {
@@ -727,15 +727,6 @@ const ViewPage = () => {
       });
 
       setNum(0);
-
-      history.push({
-        pathname: '/',
-        state: {
-          final: final,
-          pin: viewPin,
-          id: viewId
-        }
-      });
     } else {
       alert("다섯개 이상 설문을 해주세요");
     }
@@ -748,7 +739,7 @@ const ViewPage = () => {
 
   return (
     <div>
-    { (viewPin == "jxeYQ") ?
+    { (viewPin === "jxeYQ") ?
       <div className={cx('view-back')}>
         <div className={cx('view-header')}>
           <div className={cx('fixed-title')}>2020학년도 1학년 카드뉴스 수행평가</div>

@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import styles from './CommentList.scss';
-import classNames from 'classnames/bind';
+import React from 'react';
 import CommentItem from './../CommentItem/CommentItem';
-
-const cx = classNames.bind(styles);
 
 const CommentList = ({lists, viewid}) => {
 

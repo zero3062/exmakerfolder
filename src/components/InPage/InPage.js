@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
 import styles from './InPage.scss';
 import classNames from 'classnames/bind';
 import InPageList from './../InPageList/InPageList';
