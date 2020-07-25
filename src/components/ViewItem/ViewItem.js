@@ -38,15 +38,11 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response.data.comment);
       response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
       console.log(error);
     });
-
-    console.log(array);
-    console.log(array.length);
 
     setCommentarr(array);
   }
@@ -63,6 +59,9 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function (response) {
       console.log(response.data.check);
+      if(response.data.check == true) {
+        checkAdd();
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -92,7 +91,6 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       console.log(error);
     });
 
-    checkAdd();
     window.scrollTo({top: 134+532*(Number.parseInt((viewitem-1)/3)), left:0});
   }
 
