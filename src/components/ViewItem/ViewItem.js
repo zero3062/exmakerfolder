@@ -37,8 +37,8 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response.body.comment);
-      setCommentarr(response.body.comment);
+      console.log(response);
+      // setCommentarr(response.body.comment);
     })
     .catch(function (error) {
       console.log(error);
