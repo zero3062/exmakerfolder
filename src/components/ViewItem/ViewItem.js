@@ -33,14 +33,12 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     setSelect(true);
 
     var array = [];
-    var num;
     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadcomment`, {
       pin: viewpin,
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response.data.comment.length);
-      num.push(response.data.comment.length);
+      console.log(response.data.comment);
       response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
@@ -48,7 +46,8 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     });
 
     console.log(array);
-    console.log("num: "+num);
+    console.log(array.length);
+
     setCommentarr(array);
   }
 
@@ -74,8 +73,8 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       sub_name: viewitem,
     })
     .then(function(response) {
-      console.log(response.body.rate);
-      setAvgrate(response.body.rate);
+      console.log(response.data.rate);
+      setAvgrate(response.data.rate);
     })
     .catch(function (error) {
       console.log(error);
