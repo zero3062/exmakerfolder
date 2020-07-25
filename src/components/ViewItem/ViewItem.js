@@ -32,7 +32,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     window.scrollTo(0, 0);
     setSelect(true);
 
-    var array;
+    var array = [];
     var num;
     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadcomment`, {
       pin: viewpin,
