@@ -40,7 +40,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       console.log(response.data.comment.length);
-      num = response.data.comment.length;
+      num.push(response.data.comment.length);
       response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
