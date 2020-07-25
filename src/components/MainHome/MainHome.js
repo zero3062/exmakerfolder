@@ -9,24 +9,17 @@ const MainHome = () => {
   let history = useHistory();
   const location = useLocation();
 
-  const [onetZJRc, setOnetZJRc] = useState(false);
-  const [onelgibX, setOnelgibX] = useState(false);
+  const [onejxeYQ, setOnejxeYQ] = useState(false);
   const [oneId, setOneId] = useState('');
   const [onePin, setOnePin] = useState('');
 
   useEffect(() => {
     if( typeof (location.state) !== 'undefined' && location.state != null) {
       const { id, pin, final } = location.state;
-      if (pin === "tZJRc") {
-        setOnetZJRc(final);
+      if (pin === "jxeYQ") {
+        setOnejxeYQ(final);
         setOneId(id);
         setOnePin(pin);
-      } else if (pin === "lgibX") {
-        setOnelgibX(final);
-        setOneId(id);
-        setOnePin(pin);
-      } else {
-
       }
     }
   })
@@ -35,8 +28,7 @@ const MainHome = () => {
     history.push({
       pathname: '/pin',
       state: {
-        tZJRc: onetZJRc,
-        lgibX: onelgibX,
+        jxeYQ: onejxeYQ,
         oneid: oneId,
         onepin: onePin,
       }

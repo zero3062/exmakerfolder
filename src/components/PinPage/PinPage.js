@@ -15,16 +15,14 @@ const PinPage = () => {
   const [nickname, setNickname] = useState('');
   const [isWhat, setIsWhat] = useState(true);
 
-  const [onetZJRc, setOnetZJRc] = useState(false);
-  const [onelgibX, setOnelgibX] = useState(false);
+  const [onejxeYQ, setOnejxeYQ] = useState(false);
   const [oneId, setOneId] = useState('');
   const [onePin, setOnePin] = useState('');
 
   useEffect(() => {
     if( typeof (location.state) !== 'undefined' && location.state != null) {
-      const { tZJRc, lgibX, oneid, onepin } = location.state;
-      setOnetZJRc(tZJRc);
-      setOnelgibX(lgibX);
+      const { jxeYQ, oneid, onepin } = location.state;
+      setOnejxeYQ(jxeYQ);
       setOneId(oneid);
       setOnePin(onepin);
     }
