@@ -32,20 +32,23 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     window.scrollTo(0, 0);
     setSelect(true);
 
-    var array = [];
+    var array;
+    var num;
     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadcomment`, {
       pin: viewpin,
       sub_name: viewitem
     })
     .then(function(response) {
       console.log(response.data.comment.length);
+      num = response.data.comment.length;
       response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
       console.log(error);
     });
 
-    console.log(array[0]);
+    console.log(array);
+    console.log("num: "+num);
     setCommentarr(array);
   }
 
