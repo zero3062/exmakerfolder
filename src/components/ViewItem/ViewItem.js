@@ -38,7 +38,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       console.log(response.data.comment);
-      setCommentarr(response.data.comment);
+      setCommentarr([{comment:"Asdfasdfad"}]);
     })
     .catch(function (error) {
       console.log(error);
@@ -95,9 +95,6 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     setSelect(false);
     window.scrollTo({top: 134+532*(Number.parseInt((viewitem-1)/3)), left:0});
   }
-
-
-
 
   const ratingnum = 0;
 
