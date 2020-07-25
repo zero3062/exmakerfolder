@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import styles from './ViewItem.scss';
 import classNames from 'classnames/bind';
@@ -32,18 +32,22 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     window.scrollTo(0, 0);
     setSelect(true);
 
+    var array = [];
     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadcomment`, {
       pin: viewpin,
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response.data.comment[0]);
-      const array = response.data.comment;
-      console.log(array);
+      console.log(response.data.comment);
+      response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
       console.log(error);
     });
+
+    console.log(array);
+    setCommentarr(array);
+
   }
 
   const handleBack = (e) => {
