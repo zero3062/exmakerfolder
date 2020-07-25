@@ -6,7 +6,7 @@ import InPageList from './../InPageList/InPageList';
 
 const cx = classNames.bind(styles);
 
-const InPage = ({ onBack, value, file, userid, pinnum, onCheck, viewpin, viewid, viewitem, handleStar, commentarr }) => {
+const InPage = ({ onBack, value, file, userid, pinnum, onCheck, viewpin, viewid, viewitem, handleStar, commentarr, commentnum }) => {
 
   return(
     <div className={cx('in-back')}>
@@ -18,7 +18,7 @@ const InPage = ({ onBack, value, file, userid, pinnum, onCheck, viewpin, viewid,
         </div>
         <hr className={cx('in-top-line')}/>
         <div className={cx('in-list')}>
-          <InPageList  onCheck={onCheck} handleStar={handleStar} file={file} viewid={viewid} viewpin={viewpin} viewitem={viewitem} commentarr={commentarr}/>
+          <InPageList  onCheck={onCheck} handleStar={handleStar} file={file} viewid={viewid} viewpin={viewpin} viewitem={viewitem} commentarr={commentarr} commentnum={commentnum}/>
         </div>
         <hr className={cx('in-bottom-line')}/>
       </div>

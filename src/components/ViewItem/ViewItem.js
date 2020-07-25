@@ -16,6 +16,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
   const [loca, setLoca] = useState();
   const [avgrate, setAvgrate] = useState(0);
   const [commentarr, setCommentarr] = useState([]);
+  const [commentnum, setCommentNum] = useState(0);
 
   const handleStar = () => {
     window.$('.starRev span').click(function(){
@@ -39,7 +40,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       response.data.comment.map((arr) => array.push(arr));
-      console.log("commentmany: "+response.data.commentmany);
+      setCommentNum(response.data.commentmany);
     })
     .catch(function (error) {
       console.log(error);
@@ -110,7 +111,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
         <div>
           <div className={cx('viewitem-opacity')} onClick={handleClickBack}></div>
           <div className={cx('inpage')}>
-            <InPage onBack={handleBack}  value={children} file={file} viewpin={viewpin} viewid={viewid} viewitem={viewitem} handleStar={handleStar} commentarr={commentarr}/>
+            <InPage onBack={handleBack}  value={children} file={file} viewpin={viewpin} viewid={viewid} viewitem={viewitem} handleStar={handleStar} commentarr={commentarr} commentnum={commentnum}/>
           </div>
         </div>
       }
