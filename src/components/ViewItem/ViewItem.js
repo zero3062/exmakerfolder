@@ -33,22 +33,19 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     setSelect(true);
 
     var array = [];
-    var num = 0;
     axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadcomment`, {
       pin: viewpin,
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response.data.comment);
-      num = response.data.comment.length;
+      console.log(response.data.comment.length);
       response.data.comment.map((arr) => array.push(arr));
     })
     .catch(function (error) {
       console.log(error);
     });
 
-    console.log(array);
-    console.log("배열 길이 : " + num);
+    console.log(array[0]);
     setCommentarr(array);
   }
 
@@ -93,7 +90,6 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       console.log(error);
     });
 
-
     checkAdd();
     window.scrollTo({top: 134+532*(Number.parseInt((viewitem-1)/3)), left:0});
   }
@@ -102,8 +98,6 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     setSelect(false);
     window.scrollTo({top: 134+532*(Number.parseInt((viewitem-1)/3)), left:0});
   }
-
-  const ratingnum = 0;
 
   return(
     <div>
