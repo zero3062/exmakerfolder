@@ -21,8 +21,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr }) => {
       setLists([
         ...lists,
         {
-          text: input,
-          id: num,
+          comment: input,
         }
       ]);
 

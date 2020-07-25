@@ -37,8 +37,8 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
       sub_name: viewitem
     })
     .then(function(response) {
-      console.log(response);
-      // setCommentarr(response.body.comment);
+      console.log(response.data.comment);
+      setCommentarr(response.data.comment);
     })
     .catch(function (error) {
       console.log(error);
@@ -47,44 +47,44 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
 
   const handleBack = (e) => {
 
-      setSelect(false);
+    setSelect(false);
 
-      axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/rate`, {
-        id: viewid,
-        pin: viewpin,
-        sub_name: viewitem,
-        rate: star
-      })
-      .then(function (response) {
-        console.log(response.data.check);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/rate`, {
+      id: viewid,
+      pin: viewpin,
+      sub_name: viewitem,
+      rate: star
+    })
+    .then(function (response) {
+      console.log(response.data.check);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-      axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/rateche`, {
-        pin: viewpin,
-        sub_name: viewitem,
-      })
-      .then(function(response) {
-        console.log(response.body.rate);
-        setAvgrate(response.body.rate);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/rateche`, {
+      pin: viewpin,
+      sub_name: viewitem,
+    })
+    .then(function(response) {
+      console.log(response.body.rate);
+      setAvgrate(response.body.rate);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-      axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/sendelement`, {
-        id: viewid,
-        pin: viewpin,
-        sub_name: viewitem,
-      })
-      .then(function (response) {
-        console.log(response.data.check);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/sendelement`, {
+      id: viewid,
+      pin: viewpin,
+      sub_name: viewitem,
+    })
+    .then(function (response) {
+      console.log(response.data.check);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
 
     checkAdd();

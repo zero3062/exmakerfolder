@@ -11,7 +11,7 @@ const CommentList = ({lists, viewid}) => {
   const commentItem = lists.map(
     list => (
       <CommentItem
-        text={list.text}
+        text={list.comment}
         viewid={viewid}
       >
       </CommentItem>
