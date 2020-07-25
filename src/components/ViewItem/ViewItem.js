@@ -46,8 +46,9 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     });
 
     console.log(array);
+    console.log("배열 길이 : " + array.length);
     setCommentarr(array);
-
+    array = [];
   }
 
   const handleBack = (e) => {
