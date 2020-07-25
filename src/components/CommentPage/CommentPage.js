@@ -10,8 +10,10 @@ const axios = require('axios');
 const CommentPage = ({ viewid, viewpin, viewitem, commentarr }) => {
   const [input, setInput] = useState('');
   const [click, setClick] = useState(false);
-  const [lists, setLists] = useState([commentarr]);
+  const [lists, setLists] = useState(commentarr);
   const [num, setNum] = useState(commentarr.length);
+
+
 
   const handleCommitAdd = () => {
     if(input != '') {
@@ -24,7 +26,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr }) => {
         }
       ]);
 
-      axios.post('api/use/comment', {
+      axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/comment`, {
         id: viewid,
         pin: viewpin,
         sub_name: viewitem,

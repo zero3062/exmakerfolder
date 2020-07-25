@@ -38,14 +38,11 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       console.log(response.data.comment);
-      if(response.data.comment) {
-        // setCommentarr([response.data.comment]);
-      }
+      // setCommentarr([{text:"asdfasdf"},{text:"asdf;lkj"}]);
     })
     .catch(function (error) {
       console.log(error);
     });
-    setCommentarr([{text:"asdfasdfasdf"},{text:"asdfasdfasdf"},{text:"asdfasdfasdf"}]);
   }
 
   const handleBack = (e) => {
@@ -70,11 +67,12 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
         sub_name: viewitem,
       })
       .then(function(response) {
-        console.log(response.data.rate);
-        if(response.data.rate) {
-          setAvgrate(response.data.rate);
-        }
+        console.log(response.body.rate);
+        setAvgrate(response.body.rate);
       })
+      .catch(function (error) {
+        console.log(error);
+      });
 
       axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/sendelement`, {
         id: viewid,
