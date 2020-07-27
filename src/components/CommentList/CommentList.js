@@ -7,7 +7,7 @@ const CommentList = ({lists, viewid}) => {
     list => (
       <CommentItem
         text={list.comment}
-        viewid={viewid}
+        viewid={list.id}
       >
       </CommentItem>
     )

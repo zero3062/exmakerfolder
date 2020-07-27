@@ -13,10 +13,12 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
   const [lists, setLists] = useState(commentarr);
   const num = commentnum;
 
+
   const handleCommitAdd = () => {
-    if(input !== '') {
+    if(input !== ''){
       setLists([
         {
+          id: viewid,
           comment: input,
         },
         ...lists,

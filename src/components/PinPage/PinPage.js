@@ -45,7 +45,7 @@ const PinPage = () => {
     }
 
     if(!passRule.test(nickname) && pinnum === "jxeYQ" && nickname !== '' ){
-        axios.post(`http://${process.env.REACT_APP_SERVER_IP}:${process.env.REACT_APP_PORT}/api/use/loadpage`, {
+        axios.post('http://112.161.27.54:8080/api/use/loadpage', {
           id:nickname,
           pin:pinnum
         })

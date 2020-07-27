@@ -71,7 +71,9 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     })
     .then(function(response) {
       console.log(response.data.rate);
-      setAvgrate(response.data.rate);
+      if(isNaN(response.data.rate)) {
+        setAvgrate(response.data.rate);
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -101,7 +103,7 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     <div>
       <div className={cx('viewitem-back')} id={viewitem} onClick={handleClick}>
         <div className={cx('viewitem-title')}>{children}</div>
-        <div className={cx('ratingnum')}>평점 : {avgrate}</div>
+        <div className={cx('ratingnum')}>평점 : {parseFloat(avgrate).toFixed(1)}</div>
         <img src={img}/>
       </div>
       { (select === true) &&
