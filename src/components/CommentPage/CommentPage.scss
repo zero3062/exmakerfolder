@@ -33,6 +33,18 @@
         outline: none;
       }
 
+      textarea {
+        width: 350px;
+        font-size: 15px;
+        padding: 3px 5px;
+        margin-bottom: 10px;
+        outline: none;
+        resize: none;
+        height:30px;
+        overflow-y:hidden;
+        line-height: 20px;
+      }
+
       button {
         float: right;
         margin-right: 18px;
@@ -58,5 +70,7 @@
       height: 70px;
     }
   }
+
+
 
 }

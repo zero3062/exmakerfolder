@@ -12,7 +12,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
   const [click, setClick] = useState(false);
   const [lists, setLists] = useState(commentarr);
   const num = commentnum;
-
+  const [textheight, setTextHeight] = useState('20px')
 
   const handleCommitAdd = () => {
     if(input !== ''){
@@ -40,6 +40,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
 
       setClick(false);
       setInput('');
+      setTextHeight('20px')
     }
   }
 
@@ -49,6 +50,14 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
     }
   }
 
+
+  const cmaTextareaSize = () => {
+    var tesize = document.getElementById('textareaSize')
+    tesize.style.height = '1px';
+    tesize.style.height = (tesize.scrollHeight + 12) + 'px';
+    setTextHeight(tesize.style.height);
+  }
+
   return(
     <div className={cx('commentpage-back')}>
       <h4>댓글 {num}개</h4>
@@ -56,9 +65,9 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
         <div className={cx('commentpage-icon')}></div>
         { click === true ?
           <div className={cx('commentpage-after')}>
-            <input value={input} onChange={e => setInput(e.target.value)} placeHolder="공개 댓글 추가..." onKeyPress={handleOnKeyEnter}/>
+            <textarea id="textareaSize" style={{height : textheight}} value={input} onChange={e => setInput(e.target.value)} placeHolder="공개 댓글 추가..." onKeyPress={handleOnKeyEnter} onKeyUp={cmaTextareaSize}/>
             <button className={cx('commentpage-push')} onClick={handleCommitAdd}>댓글</button>
-            <button className={cx('commentpage-cancel')} onClick={e => {setClick(false);setInput('');}}>취소</button>
+            <button className={cx('commentpage-cancel')} onClick={e => {setClick(false);setInput('');setTextHeight('30px')}}>취소</button>
           </div>
           :
           <div className={cx('commentpage-before')}>
@@ -66,7 +75,7 @@ const CommentPage = ({ viewid, viewpin, viewitem, commentarr, commentnum }) => {
           </div>
         }
       </div>
-      <div className={cx('commentpage-list')}>
+      <div style={{marginTop: textheight}} className={cx('commentpage-list')}>
         <CommentList lists={lists} viewid={viewid}/>
       </div>
     </div>
