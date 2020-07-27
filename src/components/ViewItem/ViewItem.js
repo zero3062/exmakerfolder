@@ -72,6 +72,8 @@ function ViewItem({children, file, viewitem, viewid, viewpin, checkAdd, img}) {
     .then(function(response) {
       console.log(response.data.rate);
       if(isNaN(response.data.rate)) {
+        setAvgrate(0);
+      } else {
         setAvgrate(response.data.rate);
       }
     })
